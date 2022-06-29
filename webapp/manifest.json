@@ -1,0 +1,159 @@
+{
+  "_version": "1.12.0",
+  "sap.app": {
+    "id": "tde.TestDataBrowser",
+    "type": "application",
+    "i18n": "i18n/i18n.properties",
+    "applicationVersion": {
+      "version": "1.0.0"
+    },
+    "title": "{{appTitle}}",
+    "description": "{{appDescription}}",
+    "sourceTemplate": {
+      "id": "ui5template.basicSAPUI5ApplicationProject",
+      "version": "1.40.12"
+    },
+    
+    "ach": "ach",
+    "resources": "resources.json",
+    "crossNavigation": {
+      "inbounds": {
+        "intent1": {
+          "signature": {
+            "parameters": {},
+            "additionalParameters": "allowed"
+          },
+          "semanticObject": "browser",
+          "action": "display",
+          "title": "{{tileTitle}}",
+          "icon": "sap-icon://manager-insight"
+        }
+      }
+    }
+  },
+  "sap.ui": {
+    "technology": "UI5",
+    "icons": {
+      "icon": "",
+      "favIcon": "",
+      "phone": "",
+      "phone@2": "",
+      "tablet": "",
+      "tablet@2": ""
+    },
+    "deviceTypes": {
+      "desktop": true,
+      "tablet": true,
+      "phone": true
+    }
+  },
+  "sap.ui5": {
+    "flexEnabled": false,
+    "rootView": {
+      "viewName": "tde.TestDataBrowser.view.FlexibleColumnLayout",
+      "type": "XML",
+      "async": true,
+      "id": "fcl"
+    },
+    "dependencies": {
+      "minUI5Version": "1.65.6",
+      "libs": {
+        "sap.ui.layout": {},
+        "sap.ui.core": {},
+        "sap.m": {}
+      }
+    },
+    "contentDensities": {
+      "compact": true,
+      "cozy": true
+    },
+    "models": {
+      "i18n": {
+        "type": "sap.ui.model.resource.ResourceModel",
+        "settings": {
+          "bundleName": "tde.TestDataBrowser.i18n.i18n"
+        }
+      }
+    },
+    "resources": {
+      "css": [
+        {
+          "uri": "css/style.css"
+        }
+      ]
+    },
+    "routing": {
+      "config": {
+        "routerClass": "sap.f.routing.Router",
+        "viewType": "XML",
+        "viewPath": "tde.TestDataBrowser.view",
+        "controlId": "fcl",
+        "transition": "slide",
+        "async": true
+      },
+      "routes": [
+        {
+          "pattern": "page2",
+          "name": "page2",
+          "target": "page2",
+          "layout": "EndColumnFullScreen"
+        },
+        {
+          "pattern": "",
+          "name": "master",
+          "target": ["master"]
+        },
+        {
+          "pattern": "detail/{instance}/{layout}",
+          "name": "detail",
+          "target": ["master", "detail"]
+        },
+        {
+          "pattern": "instance/{layout}/{instance}/{version}",
+          "name": "instanceDetail",
+          "target": ["master", "detail"]
+        },
+        {
+          "name": "reassignDetail",
+          "pattern": "reassignDetail",
+          "target": ["TagStatusView"]
+        },
+        {
+          "pattern": "/{tag}",
+          "name": "master1",
+          "target": ["master1"]
+        }
+      ],
+      "targets": {
+        "master": {
+          "viewName": "Master",
+          "controlAggregation": "beginColumnPages"
+        },
+        "master1": {
+          "viewName": "Master",
+          "controlAggregation": "beginColumnPages"
+        },
+        "detail": {
+          "viewName": "Detail",
+          "controlAggregation": "midColumnPages"
+        },
+        "detailDetail": {
+          "viewName": "DetailDetail",
+          "controlAggregation": "endColumnPages"
+        },
+        "page2": {
+          "viewName": "AboutPage",
+          "controlAggregation": "endColumnPages"
+        },
+        "TagStatusView": {
+          "controlAggregation": "beginColumnPages",
+          "viewName": "ReassignDetail"
+        }
+      }
+    }
+  },
+  "sap.platform.hcp": {
+    "uri": "webapp",
+    "_version": "1.1.0"
+  }
+}
