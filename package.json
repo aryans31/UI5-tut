@@ -1,14 +1,20 @@
 {
-  "devDependencies": {
-    "@ui5/cli": "^2.14.9"
-  },
-  "name": "test",
+  "name": "ui5-tut",
   "version": "1.0.0",
+  "description": "",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/aryans31/UI5-tut.git"
+  },
+  "keywords": [],
   "author": "",
   "license": "ISC",
-  "description": ""
+  "bugs": {
+    "url": "https://github.com/aryans31/UI5-tut/issues"
+  },
+  "homepage": "https://github.com/aryans31/UI5-tut#readme"
 }
