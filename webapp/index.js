@@ -6,10 +6,11 @@ function (XMLView)
  {
 	"use strict";
 
-	alert("UI5 is ready")
-
-	// XMLView.create({viewName: "Quickstart.App"}).then(function(oView){
-	// 	oView.placeAt("content");
-	// });
+	//putting text and placing it into html
+	XMLView.create({
+		viewName: "Quickstart.view.App"
+	}).then(function (oView){
+		oView.placeAt("content");
+	});
 }
 );
